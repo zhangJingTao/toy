@@ -1,12 +1,13 @@
 package uiMain;
 
+import client.HttpConnection;
 import client.MongodbConnection;
-import com.mongodb.client.FindIterable;
 import com.mongodb.client.MongoCollection;
+import config.Config;
 import org.bson.Document;
+import org.json.JSONObject;
 
 import java.util.Scanner;
-import java.util.UUID;
 
 /**
  * Created by admin on 2015/4/28.
@@ -14,28 +15,29 @@ import java.util.UUID;
 public class Main {
     static MongodbConnection connection = MongodbConnection.getInstance("qzone_post");
 
-
     public static void main(String[] args) {
+        String url = Config.URL;
         System.out.println("press 'Q'---EXIT");
         System.out.println("输入QQ...");
         Scanner scanner = new Scanner(System.in);
         MongoCollection dbColl = connection.getCollection();
-
-        while (scanner.hasNext()){
-            //exit
+        while (scanner.hasNext()) {
             String command = scanner.nextLine();
-            if (command.toLowerCase().equals("q")){
-                System.exit(0);
-            }
-            int times = Integer.valueOf(command);
-            for (int i = 0; i < times; i++) {
-                Document document = new Document();
-                document.append(UUID.randomUUID().toString(),"21dsa");
-                dbColl.insertOne(document);
-            }
-            FindIterable<Document> array =  dbColl.find();
-            while (array.iterator().hasNext()){
-                System.out.println(array.iterator().next().toJson().toString());
+            System.out.println("请输入获取页数(每页20条)..");
+            while (scanner.hasNextInt()) {
+                Integer pager = scanner.nextInt();
+                for (int i = 0; i < pager; i++) {
+                    Integer pos = i * 20;
+                    String curUrl = url.replace("[QQ]", command).replace("[POS]", pos + "");
+                    System.out.println(curUrl);
+                    try {
+                        JSONObject cur = HttpConnection.readContentFromGet(curUrl);
+                        Document document = Document.parse(cur.toString());
+                        dbColl.insertOne(document);
+                    } catch (Exception e) {
+                        continue;
+                    }
+                }
             }
         }
     }
