@@ -7,7 +7,7 @@ import com.mongodb.client.MongoDatabase;
 import config.Config;
 
 /**
- * Created by admin on 2015/4/28.
+ * Created by ZhangJingtao on 2015/4/28.
  */
 public class MongodbConnection{
     static MongodbConnection instance;

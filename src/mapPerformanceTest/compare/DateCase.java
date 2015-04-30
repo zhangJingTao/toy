@@ -6,7 +6,7 @@ import java.text.SimpleDateFormat;
 import java.util.*;
 
 /**
- * Created by admin on 2015/4/21.
+ * Created by ZhangJingtao on 2015/4/21.
  */
 public class DateCase {
     //存储 HHmm 时间

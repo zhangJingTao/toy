@@ -3,7 +3,7 @@ package bean;
 import java.util.Date;
 
 /**
- * Created by admin on 2015/4/21.
+ * Created by ZhangJingtao on 2015/4/21.
  */
 public class ValueBean {
     Long id;

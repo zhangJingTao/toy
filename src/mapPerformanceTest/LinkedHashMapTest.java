@@ -6,7 +6,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 
 /**
- * Created by admin on 2015/4/21.
+ * Created by ZhangJingtao on 2015/4/21.
  */
 public class LinkedHashMapTest extends BaseTest{
     TestCase testCase;
