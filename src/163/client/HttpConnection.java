@@ -21,7 +21,7 @@ public class HttpConnection{
      * @throws IOException
      * @throws JSONException
      */
-    public static JSONObject readContentFromGet(String url) throws IOException, JSONException {
+    public static String readContentFromGet(String url) throws IOException{
         String getURL = url;
         URL getUrl = new URL(getURL);
         HttpURLConnection connection = (HttpURLConnection) getUrl
@@ -35,7 +35,7 @@ public class HttpConnection{
         }
         reader.close();
         connection.disconnect();
-        return new JSONObject(html.toString());
+        return html.toString();
     }
 
     /**
