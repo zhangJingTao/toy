@@ -1,4 +1,4 @@
-package client;
+package db.client;
 
 /**
  * Created by ZhangJingtao on 2015/4/28.

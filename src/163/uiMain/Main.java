@@ -1,7 +1,7 @@
 package uiMain;
 
-import client.HttpConnection;
-import client.MongodbConnection;
+import db.client.HttpConnection;
+import db.client.MongodbConnection;
 import com.mongodb.client.MongoCollection;
 import config.Config;
 import org.bson.Document;
