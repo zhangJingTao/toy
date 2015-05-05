@@ -1,0 +1,7 @@
+function Map() {
+	emit(
+	this.SHA1_str,
+	{count:1,str: this.cur_str}
+	);
+
+}
