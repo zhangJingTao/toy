@@ -1,0 +1,8 @@
+function Reduce(key, values) {
+	var reduced = {count:0,str:""};
+	values.forEach(function(val) {
+		reduced.str   += "||"+val.str;
+		reduced.count += val.count;
+	});
+	return reduced;
+}

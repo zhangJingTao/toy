@@ -30,7 +30,7 @@ public class CollisionTest {
         String cur = new String();
         try {
             du.init();
-            for (int i = 0; i < 2000000000L; i++) {
+            for (int i = 0; i < 3000000000L; i++) {
                 String next = du.getNextStr();
                 if (next == null || next.length()==0){
                     continue;
@@ -50,6 +50,7 @@ public class CollisionTest {
             }
             du.destory();
         }catch (Exception ex){
+            ex.printStackTrace();
             System.out.println("异常类型:"+ex.getMessage());
             StringBuffer log = new StringBuffer();
             for (Object o : batchDoc.toArray()){

@@ -11,6 +11,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.math.BigInteger;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.Iterator;
 
@@ -90,7 +91,8 @@ public class DictionaryUtil {
         if (curStr == null){
             throw new Exception("请先执行init()方法");
         }
-        String result = TenTo62.baseString(new BigInteger(curStr.toString()),62);
+        String result = TenToN.get(curStr,62);
+//                TenTo62.baseString(new BigInteger(curStr.toString()),62);
         curStr++;
         return result;
     }
